@@ -1,16 +1,44 @@
 
 package entites;
 
+import java.io.Serializable;
 import java.util.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+@Entity
 
-public class Projet  {
+public class Projet implements Serializable  {
     
+    @Id
     private String      codeproj;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date        datedep;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date        datefinp;
     private String      descproj;
     private Float       montantdevis;
+    
+    @JoinColumn(name="CODECLIENT")
+    @ManyToOne
+    private Client leClient;
+       
+     public Projet() {
+    }
+     
+      public Projet(String codeproj, Float montantdevis, Date datefinp, String descproj, Date datedep) {
+        
+        this.codeproj = codeproj;
+        this.montantdevis = montantdevis;
+        this.datefinp =datefinp;
+        this.datedep =datedep;
+        this.descproj = descproj;
+           
 
+    }
+     
     public String getCodeproj() {
         return codeproj;
     }
@@ -40,6 +68,14 @@ public class Projet  {
     }
     public void setMontantdevis(Float montantdevis) {
         this.montantdevis = montantdevis;
+    }
+
+    public Client getLeClient() {
+        return leClient;
+    }
+
+    public void setLeClient(Client leClient) {
+        this.leClient = leClient;
     }
 
 

@@ -4,6 +4,8 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>entites.Pole</class>
     <class>entites.Salarie</class>
+    <class>entites.Client</class>
+    <class>entites.Projet</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/BddTutoJPA"/>
       <property name="javax.persistence.jdbc.password" value="mdp"/>
@@ -12,6 +14,7 @@
       <property name="eclipselink.create-ddl-jdbc-file-name" value="commandesSQLCreation"/>
       <property name="eclipselink.ddl-generation.output-mode" value="both"/>
       <property name="eclipselink.logging.level" value="FINE"/>
+      <property name="eclipselink.ddl-generation" value="create-tables"/>
     </properties>
   </persistence-unit>
 </persistence>
