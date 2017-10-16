@@ -24,8 +24,9 @@ public class ChargerBase {
       Client cl3 = new Client(102L,"20 rue du Calvaire","Pierre Delayen");
       Client cl4 = new Client(103L,"18 rue du général Faidherbe","Franck Faidherbe");
       Client cl5 = new Client(104L,"2 rue de Péronne","Alexis Plomion");
+      //A FINIR PLUS LE SET PROJET ;)
       
-      Projet pr1 = new Projet("Almanac",5000f,"2017-10-23"); //A FINIR PLUS LE SET PROJET ;)
+      Projet pr1 = new Projet("Almanac",5000f,2017-10-23,"Gros projet",2017-10-01); 
       
         
       Salarie  s1=new Salarie(101L,"Dupont Pierre","M", 1750F);       
