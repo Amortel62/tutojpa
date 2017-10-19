@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -15,8 +17,11 @@ public class Client implements Serializable {
     private String        nomcli;
     private String        adrcli;
 
-    @OneToMany(mappedBy = "leClient")
-    private List<Projet> lesProjets = new LinkedList <Projet>();
+    
+    
+    @JoinColumn(name="CODEPROJ")
+    @ManyToOne
+    private Projet leProjet;
     
      public Client() {
     }
@@ -27,6 +32,13 @@ public class Client implements Serializable {
         this.numcli = numcli;
         this.adrcli = adrcli;
 
+    }
+  
+   public void afficher(){
+
+        System.out.print(numcli+ " ");
+        System.out.print(nomcli);
+        System.out.print(adrcli);
     }
     
     public String getAdrcli() {
@@ -48,12 +60,14 @@ public class Client implements Serializable {
         this.numcli = numcli;
     }
 
-    public List<Projet> getLesProjets() {
-        return lesProjets;
+    public Projet getLeProjet() {
+        return leProjet;
     }
 
-    public void setLesProjets(List<Projet> lesProjets) {
-        this.lesProjets = lesProjets;
+    public void setLeProjet(Projet leProjet) {
+        this.leProjet = leProjet;
     }
+
+   
      
 }

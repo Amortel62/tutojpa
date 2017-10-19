@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 @Entity
 
@@ -21,9 +22,8 @@ public class Projet implements Serializable  {
     private String      descproj;
     private Float       montantdevis;
     
-    @JoinColumn(name="CODECLIENT")
-    @ManyToOne
-    private Client leClient;
+@OneToMany(mappedBy = "leProjet")
+    private List<Client> lesClients = new LinkedList <Client>();
        
      public Projet() {
     }
@@ -70,13 +70,15 @@ public class Projet implements Serializable  {
         this.montantdevis = montantdevis;
     }
 
-    public Client getLeClient() {
-        return leClient;
+    public List<Client> getLesClients() {
+        return lesClients;
     }
 
-    public void setLeClient(Client leClient) {
-        this.leClient = leClient;
+    public void setLesClients(List<Client> lesClients) {
+        this.lesClients = lesClients;
     }
+
+   
 
 
 
