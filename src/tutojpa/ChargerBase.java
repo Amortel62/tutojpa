@@ -29,15 +29,13 @@ public class ChargerBase {
       
       Projet pr1 = new Projet("Almanac",5000f,UtilDate.parse("23/10/2017"),"Gros projet",UtilDate.parse("01/10/2017"));
       Projet pr2 = new Projet("Extinction",15000f,UtilDate.parse("27/11/2017"),"Enorme projet",UtilDate.parse("01/10/2017"));
-      Projet pr3 = new Projet("Création",20000f,UtilDate.parse("27/11/2017"),"Enorme projet",UtilDate.parse("01/10/2017"));
-      Projet pr4 = new Projet("Destruction",5000f,UtilDate.parse("27/11/2017"),"Enorme projet",UtilDate.parse("01/10/2017"));
-      Projet pr5 = new Projet("Genese",52000f,UtilDate.parse("27/11/2017"),"Enorme projet",UtilDate.parse("01/10/2017"));
       
-      pr1.setLeClient(cl1);
-      pr2.setLeClient(cl2);
-      pr3.setLeClient(cl3);
-      pr4.setLeClient(cl4);
-      pr5.setLeClient(cl5);
+      cl1.setLeProjet(pr1);
+      cl2.setLeProjet(pr2);
+      cl3.setLeProjet(pr2);
+      cl4.setLeProjet(pr1);
+      cl5.setLeProjet(pr2);
+      
       
         
       Salarie  s1=new Salarie(101L,"Dupont Pierre","M", 1750F);       
@@ -57,13 +55,14 @@ public class ChargerBase {
         em.persist(s1);em.persist(s2);
         em.persist(s3);em.persist(s4);
         
+         em.persist(pr1);em.persist(pr2);
+        
         em.persist(cl1);em.persist(cl2);
         em.persist(cl3);em.persist(cl4);
         em.persist(cl5);
         
-        em.persist(pr1);em.persist(pr2);
-        em.persist(pr3);em.persist(pr4);
-        em.persist(pr5);
+       
+
         
       em.getTransaction().commit();    
         

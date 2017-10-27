@@ -37,7 +37,7 @@ public class Client implements Serializable {
    public void afficher(){
 
         System.out.print(numcli+ " ");
-        System.out.print(nomcli);
+        System.out.print(nomcli+ " ");
         System.out.print(adrcli);
     }
     

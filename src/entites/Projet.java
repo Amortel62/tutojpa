@@ -38,6 +38,15 @@ public class Projet implements Serializable  {
            
 
     }
+       public void afficher(){
+
+        System.out.print(codeproj+ " ");
+        System.out.println(montantdevis+ " ");
+        System.out.println(datedep+ " ");
+        System.out.println(datefinp+ " ");
+        System.out.print(descproj);
+        
+    }
      
     public String getCodeproj() {
         return codeproj;
