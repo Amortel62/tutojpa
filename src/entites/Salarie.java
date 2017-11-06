@@ -1,10 +1,13 @@
 package entites;
 
 import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Salarie implements Serializable  {
@@ -18,13 +21,16 @@ public class Salarie implements Serializable  {
     @JoinColumn ( name = "CODEPOLE")
     @ManyToOne
     private Pole lePole;
+    
+    @OneToMany(mappedBy = "leSalarie")
+    private List<Affectation> lesAffectations = new LinkedList <Affectation>();
 
    
     
 
     public Salarie() {
     }
-    
+
    
 
     public Salarie( Long numsal, String nomsal, String sexe, Float salaire) {
@@ -82,6 +88,15 @@ public class Salarie implements Serializable  {
     public void setLePole(Pole lePole) {
         this.lePole = lePole;
     }
+     public List<Affectation> getLesAffectations() {
+        return lesAffectations;
+    }
+
+    public void setLesAffectations(List<Affectation> lesAffectations) {
+        this.lesAffectations = lesAffectations;
+    }
+    
+   
     //</editor-fold>
     
 }

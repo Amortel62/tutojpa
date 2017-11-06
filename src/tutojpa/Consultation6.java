@@ -2,6 +2,7 @@ package tutojpa;
 
 
 import entites.Client;
+import entites.Projet;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -23,8 +24,15 @@ public class Consultation6 {
         
         System.out.println("\n");
         
-        System.out.println(client.getLeProjet().getCodeproj()+" ");
         
+        for(Projet pr : client.getLesProjets()){
+        
+            pr.afficher();
+            System.out.println();
+        
+        }
+  
+      
       
     
     

@@ -22,12 +22,15 @@ public class Consultation8 {
          for(Client cl : lesClients){
         
             cl.afficher();
+            for(Projet pr : cl.getLesProjets()){
+        
+            pr.afficher();
+            System.out.println();
+        
+        }
             
-            System.out.print(" "+cl.getLeProjet().getCodeproj()+"  ");
-            System.out.println(cl.getLeProjet().getDescproj());
-            System.out.println(cl.getLeProjet().getDatedep());
-            System.out.println(cl.getLeProjet().getDatefinp());
-            System.out.println(cl.getLeProjet().getMontantdevis());
+           
+  
         
         
         }

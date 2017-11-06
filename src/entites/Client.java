@@ -5,8 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -19,9 +17,8 @@ public class Client implements Serializable {
 
     
     
-    @JoinColumn(name="CODEPROJ")
-    @ManyToOne
-    private Projet leProjet;
+    @OneToMany(mappedBy = "leClient")
+    private List<Projet> lesProjets = new LinkedList <Projet>();
     
      public Client() {
     }
@@ -60,14 +57,15 @@ public class Client implements Serializable {
         this.numcli = numcli;
     }
 
-    public Projet getLeProjet() {
-        return leProjet;
+    public List<Projet> getLesProjets() {
+        return lesProjets;
     }
 
-    public void setLeProjet(Projet leProjet) {
-        this.leProjet = leProjet;
+    public void setLesProjets(List<Projet> lesProjets) {
+        this.lesProjets = lesProjets;
     }
 
+   
    
      
 }

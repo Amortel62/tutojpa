@@ -24,16 +24,9 @@ public class Consultation7 {
         
         System.out.println("\n");
         
-       
-        for(Client cl : projet.getLesClients()){
-        
-            cl.afficher();
-            System.out.println("");
-        
-        }
-        
-      
-    
-    
+         System.out.println(projet.getLeClient().getAdrcli());
+         System.out.println(projet.getLeClient().getNomcli());
+         System.out.println(projet.getLeClient().getNumcli());
+           
 }
 }

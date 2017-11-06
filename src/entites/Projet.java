@@ -21,9 +21,14 @@ public class Projet implements Serializable  {
     private Date        datefinp;
     private String      descproj;
     private Float       montantdevis;
+
     
-@OneToMany(mappedBy = "leProjet")
-    private List<Client> lesClients = new LinkedList <Client>();
+    @JoinColumn(name="NUMCLI")
+    @ManyToOne
+    private Client leClient;
+    
+    @OneToMany(mappedBy = "leProjet")
+    private List<Affectation> lesAffectations = new LinkedList <Affectation>();
        
      public Projet() {
     }
@@ -47,7 +52,8 @@ public class Projet implements Serializable  {
         System.out.print(descproj);
         
     }
-     
+       
+     //<editor-fold defaultstate="collapsed" desc="Getters et setters">
     public String getCodeproj() {
         return codeproj;
     }
@@ -79,14 +85,24 @@ public class Projet implements Serializable  {
         this.montantdevis = montantdevis;
     }
 
-    public List<Client> getLesClients() {
-        return lesClients;
+    public Client getLeClient() {
+        return leClient;
     }
 
-    public void setLesClients(List<Client> lesClients) {
-        this.lesClients = lesClients;
+    public void setLeClient(Client leClient) {
+        this.leClient = leClient;
     }
 
+    public List<Affectation> getLesAffectations() {
+        return lesAffectations;
+    }
+
+    public void setLesAffectations(List<Affectation> lesAffectations) {
+        this.lesAffectations = lesAffectations;
+    }
+
+    
+//</editor-fold>
    
 
 
