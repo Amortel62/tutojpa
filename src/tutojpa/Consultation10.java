@@ -20,31 +20,39 @@ public class Consultation10 {
          
      Salarie sal = em.find(Salarie.class,103L);   
      
-        System.out.println(sal.getNomsal());
-        System.out.println(sal.getSexe());
-        System.out.println(sal.getSalaire());
-        
-        System.out.println(sal.getLePole().getCodePole());
+         if("M".equals(sal.getSexe())){
+          
+              System.out.print("Monsieur ");
+              
+          }else{
+          
+              System.out.print("Madame ");
+              
+          }
+     
+        System.out.println(sal.getNomsal());        
+        System.out.println("Salaire : "+sal.getSalaire()+ "€");
+        System.out.println("Pole : "+sal.getLePole().getCodePole());
         System.out.println(sal.getLePole().getNomPole());
         
       for(Affectation af : sal.getLesAffectations()){
       
-          System.out.println(af.getDateaff());
+          System.out.println(UtilDate.format(af.getDateaff()));
           if(af.isPilote() == true){
           
-              System.out.println("Pilote");
+              System.out.println("Pilote du projet");
               
           }else{
           
-              System.out.println("Non Pilote");
+              System.out.println("Non Pilote du projet");
               
           }
            
-            System.out.println(af.getLeProjet().getDatedep());
-             System.out.println(af.getLeProjet().getDatefinp());
-              System.out.println(af.getLeProjet().getDescproj());
-               System.out.println(af.getLeProjet().getLeClient().getAdrcli());
-                System.out.println(af.getLeProjet().getLeClient().getNomcli());
+            System.out.println("Date début : "+UtilDate.format(af.getLeProjet().getDatedep()));
+            System.out.println("Date fin : "+UtilDate.format(af.getLeProjet().getDatefinp()));
+            System.out.println("Description du projet : "+af.getLeProjet().getDescproj());
+            System.out.println("Adresse du client : "+af.getLeProjet().getLeClient().getAdrcli());
+            System.out.println("Nom du client : "+af.getLeProjet().getLeClient().getNomcli());
                   
       
       }
